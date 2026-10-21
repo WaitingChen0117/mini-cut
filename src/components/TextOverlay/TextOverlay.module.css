@@ -1,0 +1,93 @@
+.text_overlay_modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(4px);
+}
+
+.text_overlay__dialog {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text_overlay__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.text_overlay__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.text_overlay__label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.text_overlay__input {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+}
+
+.text_overlay__input:focus {
+  border-color: var(--accent);
+}
+
+.text_overlay__row {
+  display: flex;
+  gap: 12px;
+}
+
+.text_overlay__row .text_overlay__field {
+  flex: 1;
+}
+
+.text_overlay__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.text_overlay__btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.text_overlay__btn--cancel {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+}
+
+.text_overlay__btn--cancel:hover {
+  background: var(--bg-hover);
+}
+
+.text_overlay__btn--confirm {
+  background: var(--accent);
+  color: #fff;
+}
+
+.text_overlay__btn--confirm:hover {
+  background: var(--accent-light);
+}

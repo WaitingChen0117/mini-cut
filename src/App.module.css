@@ -1,0 +1,93 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+.app__main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.app__sidebar_left {
+  width: 280px;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-width: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.app__center {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.app__sidebar_right {
+  width: 260px;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-width: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+/* Vertical divider between columns */
+.app__divider_v {
+  width: 8px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  background: var(--bg-primary);
+  z-index: 10;
+  user-select: none;
+}
+
+/* Horizontal divider between main and timeline */
+.app__divider_h {
+  height: 8px;
+  flex-shrink: 0;
+  cursor: row-resize;
+  background: var(--bg-primary);
+  z-index: 10;
+  user-select: none;
+}
+
+.app__timeline {
+  flex-shrink: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.app__export_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  gap: 16px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.app__export_progress {
+  width: 260px;
+  height: 6px;
+  background: var(--bg-surface);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.app__export_progress_fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.1s;
+}

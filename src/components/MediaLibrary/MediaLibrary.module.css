@@ -1,0 +1,238 @@
+.library {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  background: var(--module-bg);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.library__header {
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--module-header-bg);
+}
+
+.library__grid {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px);
+  gap: 8px;
+  align-content: start;
+  justify-content: start;
+}
+
+.library__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: grab;
+  user-select: none;
+  width: 120px;
+}
+
+.library__item:active {
+  cursor: grabbing;
+}
+
+/* Thumbnail container */
+.library__thumb {
+  position: relative;
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  background: var(--module-header-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.library__thumb video,
+.library__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.library__thumb_icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+/* Duration badge */
+.library__duration {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* "已添加" badge */
+.library__added_badge {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(29, 184, 168, 0.18);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.library__added_badge::before {
+  content: '已添加';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: #1db8a8;
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* Hover add button — bottom-right corner, no overlay */
+.library__btn_add {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.1s;
+  z-index: 5;
+}
+
+.library__thumb:hover .library__btn_add {
+  opacity: 1;
+}
+
+.library__btn_add:hover {
+  transform: scale(1.15);
+}
+
+/* Selected state */
+.library__thumb--selected {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Progress line */
+.library__progress_line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 4;
+  transform: translateX(-50%);
+}
+
+/* Play/pause indicator */
+.library__playing_icon {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Clip name */
+.library__name {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 2px;
+}
+
+.library__empty {
+  grid-column: 1 / -1;
+  padding: 32px 12px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Context menu */
+.library__context_menu {
+  position: fixed;
+  background: var(--module-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  min-width: 130px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.library__menu_item {
+  display: block;
+  width: 100%;
+  padding: 7px 12px;
+  text-align: left;
+  font-size: 13px;
+  color: var(--text-primary);
+  border-radius: 5px;
+  transition: background 0.1s;
+}
+
+.library__menu_item:hover {
+  background: var(--bg-hover);
+}
+
+.library__menu_item--danger {
+  color: var(--accent);
+}
+
+.library__menu_item--danger:hover {
+  background: rgba(233, 69, 96, 0.15);
+}
+
+.library__menu_divider {
+  height: 1px;
+  background: var(--border);
+  margin: 3px 4px;
+}
