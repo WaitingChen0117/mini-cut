@@ -4,6 +4,22 @@
 
 技术栈：React 18、TypeScript、Vite、Zustand。
 
+## 界面
+
+空项目时，左侧是素材库，中间是预览，右侧是属性，底部是时间轴。
+
+![MiniCut 空状态](docs/screenshots/minicut-empty.png)
+
+导入图片并加上文字后，可以在右侧改内容、字号、颜色、缩放和出现时间。
+
+![MiniCut 编辑文字](docs/screenshots/minicut-editing.jpg)
+
+## 布局参考
+
+分区方式参考剪映：素材在左，播放器在中，属性在右，多轨时间轴在下。下图是剪映的界面，只作对照。
+
+![剪映界面](docs/screenshots/jianying.png)
+
 ## 功能
 
 - 导入本地视频、音频、图片，拖到时间轴
