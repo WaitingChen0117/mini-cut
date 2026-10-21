@@ -4,4 +4,3 @@ dist-ssr
 .DS_Store
 .vite
 *.local
-.frontend-agent
