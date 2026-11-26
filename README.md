@@ -4,6 +4,8 @@
 
 技术栈：React 18、TypeScript、Vite、Zustand。
 
+🌐 **在线演示**: https://waitingchen0117.github.io/mini-cut/
+
 ## 界面
 
 空项目时，左侧是素材库，中间是预览，右侧是属性，底部是时间轴。
@@ -46,3 +48,12 @@ npm run build    # 类型检查并构建
 npm run preview  # 预览构建结果
 npm test         # 跑单元测试
 ```
+
+## 部署
+
+项目通过 GitHub Actions 自动部署到 GitHub Pages。每次推送到 `main` 分支时，工作流会自动构建并部署到 https://waitingchen0117.github.io/mini-cut/
+
+### 本地开发说明
+
+- 开发环境 (`npm run dev`)：应用运行在根路径 `/`，通常是 `http://localhost:5173/`
+- 生产构建：自动配置为 GitHub Pages 的项目路径 `/mini-cut/`
